@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  rabbit:
+    image: "rmq-mqtt"
+    hostname: "rabbitmq"
+    environment:
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+      - "1883:1883"
+    labels:
+      NAME: "rabbit-mqtt"
+    # volumes:
+      # - "./env/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins"
+      #- "./rabbitmq.config:/etc/rabbitmq/rabbitmq.config:ro"
+      #- "./autocluster-0.4.1.ez:/usr/lib/rabbitmq/lib/rabbitmq_server-3.5.5/plugins/autocluster-0.4.1.ez"
